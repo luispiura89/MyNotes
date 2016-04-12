@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD53C48E1CB07F5F006453B5 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53C48D1CB07F5F006453B5 /* FormViewController.swift */; };
+		CD53C4901CB08609006453B5 /* FormNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53C48F1CB08609006453B5 /* FormNavigationController.swift */; };
+		CD53C4921CB088EC006453B5 /* FormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53C4911CB088EC006453B5 /* FormTableViewCell.swift */; };
 		CD8BDBE71CAD8F180082751F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BDBE61CAD8F180082751F /* AppDelegate.swift */; };
 		CD8BDBE91CAD8F180082751F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BDBE81CAD8F180082751F /* ViewController.swift */; };
 		CD8BDBEC1CAD8F180082751F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8BDBEA1CAD8F180082751F /* Main.storyboard */; };
@@ -14,6 +17,16 @@
 		CD8BDBF11CAD8F180082751F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8BDBEF1CAD8F180082751F /* LaunchScreen.storyboard */; };
 		CD8BDBFC1CAD8F180082751F /* MyNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BDBFB1CAD8F180082751F /* MyNotesTests.swift */; };
 		CD8BDC071CAD8F180082751F /* MyNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BDC061CAD8F180082751F /* MyNotesUITests.swift */; };
+		CD8BDC171CAD984B0082751F /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BDC161CAD984B0082751F /* Actions.swift */; };
+		CD8BDC191CADA8150082751F /* ActionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BDC181CADA8150082751F /* ActionsCollectionViewCell.swift */; };
+		CD8BDC1B1CADB3290082751F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BDC1A1CADB3290082751F /* ListViewController.swift */; };
+		CDB692CF1CAF949C0054AD2D /* WriteNoteNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB692CE1CAF949C0054AD2D /* WriteNoteNavigationViewController.swift */; };
+		CDB692D41CAF9DC20054AD2D /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB692D31CAF9DC20054AD2D /* NoteTableViewCell.swift */; };
+		CDB692D61CAFA65D0054AD2D /* ListNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB692D51CAFA65D0054AD2D /* ListNavigationViewController.swift */; };
+		CDBC561C1CAF42EF00D5B4C3 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC561B1CAF42EF00D5B4C3 /* Note.swift */; };
+		CDBC561E1CAF482200D5B4C3 /* AddNoteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC561D1CAF482200D5B4C3 /* AddNoteNavigationController.swift */; };
+		CDBC56201CAF6C1400D5B4C3 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC561F1CAF6C1400D5B4C3 /* WriteViewController.swift */; };
+		CDC96DD11CADC93D003C6C88 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC96DD01CADC93D003C6C88 /* AddNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +47,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD53C48D1CB07F5F006453B5 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		CD53C48F1CB08609006453B5 /* FormNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormNavigationController.swift; sourceTree = "<group>"; };
+		CD53C4911CB088EC006453B5 /* FormTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTableViewCell.swift; sourceTree = "<group>"; };
 		CD8BDBE31CAD8F180082751F /* MyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD8BDBE61CAD8F180082751F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD8BDBE81CAD8F180082751F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CD8BDBE81CAD8F180082751F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = MyNotes/ViewController.swift; sourceTree = "<group>"; };
 		CD8BDBEB1CAD8F180082751F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD8BDBED1CAD8F180082751F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD8BDBF01CAD8F180082751F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +63,16 @@
 		CD8BDC021CAD8F180082751F /* MyNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD8BDC061CAD8F180082751F /* MyNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesUITests.swift; sourceTree = "<group>"; };
 		CD8BDC081CAD8F180082751F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD8BDC161CAD984B0082751F /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		CD8BDC181CADA8150082751F /* ActionsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		CD8BDC1A1CADB3290082751F /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		CDB692CE1CAF949C0054AD2D /* WriteNoteNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteNoteNavigationViewController.swift; sourceTree = "<group>"; };
+		CDB692D31CAF9DC20054AD2D /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		CDB692D51CAFA65D0054AD2D /* ListNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNavigationViewController.swift; sourceTree = "<group>"; };
+		CDBC561B1CAF42EF00D5B4C3 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		CDBC561D1CAF482200D5B4C3 /* AddNoteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteNavigationController.swift; sourceTree = "<group>"; };
+		CDBC561F1CAF6C1400D5B4C3 /* WriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		CDC96DD01CADC93D003C6C88 /* AddNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +103,9 @@
 		CD8BDBDA1CAD8F180082751F = {
 			isa = PBXGroup;
 			children = (
+				CDB692D21CAF9D960054AD2D /* View */,
+				CD8BDC151CAD95370082751F /* Model */,
+				CD8BDC141CAD95260082751F /* ViewController */,
 				CD8BDBE51CAD8F180082751F /* MyNotes */,
 				CD8BDBFA1CAD8F180082751F /* MyNotesTests */,
 				CD8BDC051CAD8F180082751F /* MyNotesUITests */,
@@ -98,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				CD8BDBE61CAD8F180082751F /* AppDelegate.swift */,
-				CD8BDBE81CAD8F180082751F /* ViewController.swift */,
 				CD8BDBEA1CAD8F180082751F /* Main.storyboard */,
 				CD8BDBED1CAD8F180082751F /* Assets.xcassets */,
 				CD8BDBEF1CAD8F180082751F /* LaunchScreen.storyboard */,
@@ -123,6 +151,41 @@
 				CD8BDC081CAD8F180082751F /* Info.plist */,
 			);
 			path = MyNotesUITests;
+			sourceTree = "<group>";
+		};
+		CD8BDC141CAD95260082751F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CD8BDBE81CAD8F180082751F /* ViewController.swift */,
+				CD8BDC181CADA8150082751F /* ActionsCollectionViewCell.swift */,
+				CD8BDC1A1CADB3290082751F /* ListViewController.swift */,
+				CDC96DD01CADC93D003C6C88 /* AddNoteViewController.swift */,
+				CDBC561D1CAF482200D5B4C3 /* AddNoteNavigationController.swift */,
+				CDBC561F1CAF6C1400D5B4C3 /* WriteViewController.swift */,
+				CDB692CE1CAF949C0054AD2D /* WriteNoteNavigationViewController.swift */,
+				CDB692D51CAFA65D0054AD2D /* ListNavigationViewController.swift */,
+				CD53C48D1CB07F5F006453B5 /* FormViewController.swift */,
+				CD53C48F1CB08609006453B5 /* FormNavigationController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		CD8BDC151CAD95370082751F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD8BDC161CAD984B0082751F /* Actions.swift */,
+				CDBC561B1CAF42EF00D5B4C3 /* Note.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CDB692D21CAF9D960054AD2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CDB692D31CAF9DC20054AD2D /* NoteTableViewCell.swift */,
+				CD53C4911CB088EC006453B5 /* FormTableViewCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +322,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDBC56201CAF6C1400D5B4C3 /* WriteViewController.swift in Sources */,
+				CD8BDC171CAD984B0082751F /* Actions.swift in Sources */,
 				CD8BDBE91CAD8F180082751F /* ViewController.swift in Sources */,
+				CDBC561C1CAF42EF00D5B4C3 /* Note.swift in Sources */,
+				CDB692D61CAFA65D0054AD2D /* ListNavigationViewController.swift in Sources */,
+				CD53C4901CB08609006453B5 /* FormNavigationController.swift in Sources */,
+				CDC96DD11CADC93D003C6C88 /* AddNoteViewController.swift in Sources */,
+				CD8BDC191CADA8150082751F /* ActionsCollectionViewCell.swift in Sources */,
+				CDBC561E1CAF482200D5B4C3 /* AddNoteNavigationController.swift in Sources */,
+				CD8BDC1B1CADB3290082751F /* ListViewController.swift in Sources */,
+				CDB692CF1CAF949C0054AD2D /* WriteNoteNavigationViewController.swift in Sources */,
 				CD8BDBE71CAD8F180082751F /* AppDelegate.swift in Sources */,
+				CDB692D41CAF9DC20054AD2D /* NoteTableViewCell.swift in Sources */,
+				CD53C4921CB088EC006453B5 /* FormTableViewCell.swift in Sources */,
+				CD53C48E1CB07F5F006453B5 /* FormViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +563,7 @@
 				CD8BDC0D1CAD8F180082751F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD8BDC0E1CAD8F180082751F /* Build configuration list for PBXNativeTarget "MyNotesTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +572,7 @@
 				CD8BDC101CAD8F180082751F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD8BDC111CAD8F180082751F /* Build configuration list for PBXNativeTarget "MyNotesUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +581,7 @@
 				CD8BDC131CAD8F180082751F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
