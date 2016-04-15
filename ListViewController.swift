@@ -8,10 +8,17 @@
 
 import UIKit
 
-class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate{
 
+    @IBOutlet weak var notesTable: UITableView!
     var arrayNotes: [Note]!
+    var searchedNotes:[Note] = []
     var selectedNote: Note!
+    var isSearching = false{
+        didSet{
+            notesTable.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,14 +59,16 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayNotes.count
+        return isSearching == false ? arrayNotes.count : searchedNotes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("noteCell")!
         
+        
+        
         if let cell = cell as? NoteTableViewCell{
-            cell.note = arrayNotes[indexPath.item]
+            cell.note = isSearching == false ? arrayNotes[indexPath.item] : searchedNotes[indexPath.item]
         }
         
         return cell
@@ -70,10 +79,64 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let note = arrayNotes[indexPath.row]
+        let note = isSearching == false ? arrayNotes[indexPath.row] : searchedNotes[indexPath.row]
         selectedNote = note
         performSegueWithIdentifier("view", sender: self)
         //self.performSegueWithIdentifier("view", sender: self)
+    }
+    
+    //MARK: - UISearchBarDelegate
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchedNotes = []
+        isSearching = true
+        
+        var searchText = searchBar.text ?? ""
+        if searchText.isEmpty == false{
+            isSearching = true
+            
+            searchedNotes = []
+            
+            for note in arrayNotes{
+                let noteTitle = note.title.lowercaseString
+                searchText = searchText.lowercaseString
+                if noteTitle.containsString(searchText){
+                    searchedNotes.append(note)
+                }
+            }
+            notesTable.reloadData()
+            
+        }
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        var searchText = searchBar.text ?? ""
+        if searchText.isEmpty == false{
+            isSearching = true
+            
+            searchedNotes = []
+            
+            for note in arrayNotes{
+                let noteTitle = note.title.lowercaseString
+                searchText = searchText.lowercaseString
+                if noteTitle.containsString(searchText){
+                    searchedNotes.append(note)
+                }
+            }
+            notesTable.reloadData()
+            
+        }/*else{
+            isSearching = false
+        }*/
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        isSearching = false
+        searchBar.text = ""
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 
 }

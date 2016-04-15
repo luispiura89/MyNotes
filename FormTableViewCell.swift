@@ -26,6 +26,9 @@ class FormTableViewCell: UITableViewCell, UITextViewDelegate,UITextFieldDelegate
                 bodyTextView.delegate = self
             }else if cellIdentifier == "iconCell"{
                 imagePicker.delegate = self
+                loadButton.layer.borderWidth = 0.5
+                loadButton.layer.cornerRadius = 5
+                loadButton.layer.borderColor = tintColor.CGColor
             }
         }
     }
@@ -38,6 +41,7 @@ class FormTableViewCell: UITableViewCell, UITextViewDelegate,UITextFieldDelegate
     @IBOutlet weak var bodyTextView: UITextView!
     @IBOutlet weak var prioritySlideBar: UISlider!
     @IBOutlet weak var iconImage: UIImageView!
+    @IBOutlet weak var loadButton: UIButton!
     
     
     override func awakeFromNib() {

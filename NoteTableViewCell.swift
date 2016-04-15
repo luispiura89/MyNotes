@@ -34,10 +34,16 @@ class NoteTableViewCell: UITableViewCell {
     }
     
     func updateUI(){
+        
+        
         titleLabel.text = note.title
         dateLabel.text = note.date.description
         if note.priority == .normal{
             priorityLabel.text = "Normal"
+            self.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+            titleLabel.textColor = UIColor.blackColor()
+            priorityLabel.textColor = UIColor.blackColor()
+            dateLabel.textColor = UIColor.blackColor()
         }else{
             priorityLabel.text = "Urgent"
             titleLabel.textColor = UIColor.whiteColor()

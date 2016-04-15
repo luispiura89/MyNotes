@@ -53,7 +53,7 @@ class FormViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifier = indexPath.row == 0 ? "titleCell" : indexPath.row == 1 ? "imageCell" : indexPath.row == 2 ? "contentCell" : "iconCell"
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as!FormTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! FormTableViewCell
         
         cell.cellIdentifier = identifier
         cell.delegate = self
