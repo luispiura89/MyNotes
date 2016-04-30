@@ -182,7 +182,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KMH-df-nG0">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" showsCancelButton="YES" id="QVT-Rt-lgp">
                                     <rect key="frame" x="0.0" y="64" width="600" height="44"/>
@@ -266,11 +266,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="KMH-df-nG0" firstAttribute="top" secondItem="iLw-IG-kac" secondAttribute="top" id="N6K-rH-EhR"/>
                             <constraint firstItem="KMH-df-nG0" firstAttribute="top" secondItem="2sD-ew-Lsl" secondAttribute="bottom" id="fJY-Ox-bzo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KMH-df-nG0" secondAttribute="trailing" constant="-20" id="foA-4r-Gf7"/>
                             <constraint firstItem="KMH-df-nG0" firstAttribute="leading" secondItem="iLw-IG-kac" secondAttribute="leadingMargin" constant="-20" id="i9j-HC-A4z"/>
                             <constraint firstItem="vgP-uM-fPr" firstAttribute="top" secondItem="KMH-df-nG0" secondAttribute="bottom" id="tJD-NC-REr"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fJY-Ox-bzo"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="My Notes" id="uQZ-Ww-dGO">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="Rkh-5U-nMH">
