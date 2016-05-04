@@ -445,8 +445,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="8d3-a1-FRI">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="8d3-a1-FRI">
                                                     <rect key="frame" x="13" y="10" width="35" height="35"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="8d3-a1-FRI" secondAttribute="height" multiplier="1:1" id="N84-pM-2ik"/>
                                                         <constraint firstAttribute="width" constant="101" id="Tek-Km-vb2"/>
@@ -462,28 +463,35 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aB0-sC-Q0C">
-                                                    <rect key="frame" x="95" y="13" width="106" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayx-TH-Vmz">
+                                                    <rect key="frame" x="68" y="12" width="98" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="mN8-gZ-Dnj"/>
-                                                        <constraint firstAttribute="width" constant="106" id="xfR-kP-al3"/>
+                                                        <constraint firstAttribute="width" constant="147" id="Pmt-nv-f2Y"/>
+                                                        <constraint firstAttribute="width" constant="98" id="i9p-5U-kew"/>
                                                     </constraints>
                                                     <state key="normal" title="Load Image"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Pmt-nv-f2Y"/>
+                                                        </mask>
+                                                    </variation>
                                                     <connections>
-                                                        <action selector="loadImage:" destination="75J-BY-Shz" eventType="touchUpInside" id="Zpg-Mx-gFo"/>
+                                                        <action selector="loadImage:" destination="75J-BY-Shz" eventType="touchUpInside" id="2St-IL-dZV"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <gestureRecognizers/>
                                             <constraints>
-                                                <constraint firstItem="aB0-sC-Q0C" firstAttribute="top" secondItem="PwZ-Fr-hIF" secondAttribute="topMargin" constant="5" id="DGw-Vi-sVV"/>
+                                                <constraint firstItem="ayx-TH-Vmz" firstAttribute="leading" secondItem="8d3-a1-FRI" secondAttribute="trailing" constant="20" id="MUq-X8-2Wo"/>
                                                 <constraint firstItem="8d3-a1-FRI" firstAttribute="leading" secondItem="PwZ-Fr-hIF" secondAttribute="leadingMargin" constant="5" id="Tiw-b6-KJ7"/>
-                                                <constraint firstItem="aB0-sC-Q0C" firstAttribute="leading" secondItem="8d3-a1-FRI" secondAttribute="trailing" constant="47" id="VtV-oI-gk1"/>
                                                 <constraint firstItem="8d3-a1-FRI" firstAttribute="top" secondItem="PwZ-Fr-hIF" secondAttribute="topMargin" constant="2" id="oum-4L-zIG"/>
+                                                <constraint firstItem="ayx-TH-Vmz" firstAttribute="top" secondItem="PwZ-Fr-hIF" secondAttribute="topMargin" constant="4" id="yVM-Re-Kfs"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="iconImage" destination="8d3-a1-FRI" id="COK-HX-MZp"/>
-                                            <outlet property="loadButton" destination="aB0-sC-Q0C" id="Uin-DV-pd4"/>
+                                            <outlet property="loadImageButton" destination="ayx-TH-Vmz" id="giN-ZI-nYT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
