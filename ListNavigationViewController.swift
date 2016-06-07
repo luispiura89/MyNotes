@@ -16,9 +16,9 @@ class ListNavigationViewController: UINavigationController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if let vc = self.topViewController as? ListViewController{
-            vc.arrayNotes = arrayNotes
-        }
+        //if let vc = self.topViewController as? ListViewController{
+            //vc.arrayNotes = arrayNotes
+        //}
     }
 
     override func didReceiveMemoryWarning() {

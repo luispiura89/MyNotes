@@ -25,6 +25,8 @@ class FormTableViewCell: UITableViewCell, UITextViewDelegate,UITextFieldDelegate
             }else if cellIdentifier == "contentCell"{
                 bodyTextView.delegate = self
             }else if cellIdentifier == "iconCell"{
+                iconImage.layer.masksToBounds = true
+                iconImage.layer.cornerRadius = iconImage.frame.width / 2
                 imagePicker.delegate = self
                 loadImageButton.layer.borderWidth = 0.5
                 loadImageButton.layer.cornerRadius = 5
@@ -78,6 +80,8 @@ class FormTableViewCell: UITableViewCell, UITextViewDelegate,UITextFieldDelegate
     @IBAction func loadImage(sender: AnyObject) {
         self.delegate.searchImage(imagePicker)
     }
+    
+    //MARK: - ImagedPickedControllerDelegate
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{

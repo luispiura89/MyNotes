@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ActivityEnded {
+    func activityEnded()
+}
+
 class AddNoteViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var iconImageView: UIImageView!
@@ -16,14 +20,19 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     
     var note: Note!
+    var delegate: ActivityEnded!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         titleLabel.text = note.title
         bodyTextView.text = note.body
-        dateLabel.text = note.date.description
-        iconImageView.image = note.image
+        dateLabel.text = note.date!.description
+        if let image = note.image{
+            iconImageView.image = UIImage(data: image)
+            iconImageView.layer.masksToBounds = true
+            iconImageView.layer.cornerRadius = iconImageView.frame.width / 2
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +58,24 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    //MARK: - Actions
+    @IBAction func backAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true) { 
+            
+        }
+    }
+    
+    @IBAction func doneActivity(sender: AnyObject) {
+        if let note = note{
+            note.finished = NSNumber(bool: true)
+            note.save()
+            self.dismissViewControllerAnimated(true, completion: {
+                self.delegate.activityEnded()
+            })
+        }
+    }
+    
     
 
     

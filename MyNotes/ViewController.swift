@@ -74,12 +74,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         
         
-        
+        /*
         if segue.identifier == "search"{
             if let vc = segue.destinationViewController as? ListNavigationViewController{
                 vc.arrayNotes = notesArray
             }
-        }
+        }*/
         
     }
     

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD265D711D06433100191162 /* Notes_Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD265D6F1D06433100191162 /* Notes_Data.xcdatamodeld */; };
+		CD265D741D0644A300191162 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD265D731D0644A300191162 /* DataManager.swift */; };
+		CD265D761D0646BF00191162 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD265D751D0646BF00191162 /* Query.swift */; };
+		CD265D7A1D064E3100191162 /* CDObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD265D791D064E3100191162 /* CDObject.swift */; };
 		CD53C48E1CB07F5F006453B5 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53C48D1CB07F5F006453B5 /* FormViewController.swift */; };
 		CD53C4901CB08609006453B5 /* FormNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53C48F1CB08609006453B5 /* FormNavigationController.swift */; };
 		CD53C4921CB088EC006453B5 /* FormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53C4911CB088EC006453B5 /* FormTableViewCell.swift */; };
@@ -20,6 +24,7 @@
 		CD8BDC171CAD984B0082751F /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BDC161CAD984B0082751F /* Actions.swift */; };
 		CD8BDC191CADA8150082751F /* ActionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BDC181CADA8150082751F /* ActionsCollectionViewCell.swift */; };
 		CD8BDC1B1CADB3290082751F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BDC1A1CADB3290082751F /* ListViewController.swift */; };
+		CD8E05861D0733B9008419D4 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8E05851D0733B9008419D4 /* Note+CoreDataProperties.swift */; };
 		CDB692CF1CAF949C0054AD2D /* WriteNoteNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB692CE1CAF949C0054AD2D /* WriteNoteNavigationViewController.swift */; };
 		CDB692D41CAF9DC20054AD2D /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB692D31CAF9DC20054AD2D /* NoteTableViewCell.swift */; };
 		CDB692D61CAFA65D0054AD2D /* ListNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB692D51CAFA65D0054AD2D /* ListNavigationViewController.swift */; };
@@ -47,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD265D701D06433100191162 /* Notes_Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes_Data.xcdatamodel; sourceTree = "<group>"; };
+		CD265D731D0644A300191162 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		CD265D751D0646BF00191162 /* Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
+		CD265D791D064E3100191162 /* CDObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDObject.swift; sourceTree = "<group>"; };
 		CD53C48D1CB07F5F006453B5 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		CD53C48F1CB08609006453B5 /* FormNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormNavigationController.swift; sourceTree = "<group>"; };
 		CD53C4911CB088EC006453B5 /* FormTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTableViewCell.swift; sourceTree = "<group>"; };
@@ -66,6 +75,7 @@
 		CD8BDC161CAD984B0082751F /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		CD8BDC181CADA8150082751F /* ActionsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD8BDC1A1CADB3290082751F /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		CD8E05851D0733B9008419D4 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CDB692CE1CAF949C0054AD2D /* WriteNoteNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteNoteNavigationViewController.swift; sourceTree = "<group>"; };
 		CDB692D31CAF9DC20054AD2D /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		CDB692D51CAFA65D0054AD2D /* ListNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNavigationViewController.swift; sourceTree = "<group>"; };
@@ -100,9 +110,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD265D721D06444B00191162 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CD265D731D0644A300191162 /* DataManager.swift */,
+				CD265D751D0646BF00191162 /* Query.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		CD8BDBDA1CAD8F180082751F = {
 			isa = PBXGroup;
 			children = (
+				CD265D721D06444B00191162 /* Helpers */,
 				CDB692D21CAF9D960054AD2D /* View */,
 				CD8BDC151CAD95370082751F /* Model */,
 				CD8BDC141CAD95260082751F /* ViewController */,
@@ -128,6 +148,7 @@
 			children = (
 				CD8BDBE61CAD8F180082751F /* AppDelegate.swift */,
 				CD8BDBEA1CAD8F180082751F /* Main.storyboard */,
+				CD265D6F1D06433100191162 /* Notes_Data.xcdatamodeld */,
 				CD8BDBED1CAD8F180082751F /* Assets.xcassets */,
 				CD8BDBEF1CAD8F180082751F /* LaunchScreen.storyboard */,
 				CD8BDBF21CAD8F180082751F /* Info.plist */,
@@ -173,8 +194,10 @@
 		CD8BDC151CAD95370082751F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CD8E05851D0733B9008419D4 /* Note+CoreDataProperties.swift */,
 				CD8BDC161CAD984B0082751F /* Actions.swift */,
 				CDBC561B1CAF42EF00D5B4C3 /* Note.swift */,
+				CD265D791D064E3100191162 /* CDObject.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -323,13 +346,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDBC56201CAF6C1400D5B4C3 /* WriteViewController.swift in Sources */,
+				CD265D711D06433100191162 /* Notes_Data.xcdatamodeld in Sources */,
 				CD8BDC171CAD984B0082751F /* Actions.swift in Sources */,
 				CD8BDBE91CAD8F180082751F /* ViewController.swift in Sources */,
 				CDBC561C1CAF42EF00D5B4C3 /* Note.swift in Sources */,
 				CDB692D61CAFA65D0054AD2D /* ListNavigationViewController.swift in Sources */,
 				CD53C4901CB08609006453B5 /* FormNavigationController.swift in Sources */,
+				CD265D7A1D064E3100191162 /* CDObject.swift in Sources */,
+				CD8E05861D0733B9008419D4 /* Note+CoreDataProperties.swift in Sources */,
 				CDC96DD11CADC93D003C6C88 /* AddNoteViewController.swift in Sources */,
 				CD8BDC191CADA8150082751F /* ActionsCollectionViewCell.swift in Sources */,
+				CD265D741D0644A300191162 /* DataManager.swift in Sources */,
+				CD265D761D0646BF00191162 /* Query.swift in Sources */,
 				CDBC561E1CAF482200D5B4C3 /* AddNoteNavigationController.swift in Sources */,
 				CD8BDC1B1CADB3290082751F /* ListViewController.swift in Sources */,
 				CDB692CF1CAF949C0054AD2D /* WriteNoteNavigationViewController.swift in Sources */,
@@ -584,6 +612,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CD265D6F1D06433100191162 /* Notes_Data.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CD265D701D06433100191162 /* Notes_Data.xcdatamodel */,
+			);
+			currentVersion = CD265D701D06433100191162 /* Notes_Data.xcdatamodel */;
+			path = Notes_Data.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CD8BDBDB1CAD8F180082751F /* Project object */;
 }

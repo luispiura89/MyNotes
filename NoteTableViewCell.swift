@@ -37,22 +37,33 @@ class NoteTableViewCell: UITableViewCell {
         
         
         titleLabel.text = note.title
-        dateLabel.text = note.date.description
-        if note.priority == .normal{
-            priorityLabel.text = "Normal"
-            self.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
-            titleLabel.textColor = UIColor.blackColor()
-            priorityLabel.textColor = UIColor.blackColor()
-            dateLabel.textColor = UIColor.blackColor()
-        }else{
-            priorityLabel.text = "Urgent"
-            titleLabel.textColor = UIColor.whiteColor()
-            priorityLabel.textColor = UIColor.whiteColor()
-            dateLabel.textColor = UIColor.whiteColor()
-            self.backgroundColor = UIColor(red: 159/255, green: 105/255, blue: 113/255, alpha: 1.0)
-            
+        if let date = note.date{
+            dateLabel.text = date.description
         }
-        noteImage.image = note.image
+        
+        if let notePriority = note.priority{
+            let boolPriority = Bool(notePriority)
+            if boolPriority == false{
+                priorityLabel.text = "Normal"
+                self.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+                titleLabel.textColor = UIColor.blackColor()
+                priorityLabel.textColor = UIColor.blackColor()
+                dateLabel.textColor = UIColor.blackColor()
+            }else{
+                priorityLabel.text = "Urgent"
+                titleLabel.textColor = UIColor.whiteColor()
+                priorityLabel.textColor = UIColor.whiteColor()
+                dateLabel.textColor = UIColor.whiteColor()
+                self.backgroundColor = UIColor(red: 159/255, green: 105/255, blue: 113/255, alpha: 1.0)
+                
+            }
+        }
+        
+        if let image = note.image{
+            noteImage.image = UIImage(data: image)
+            noteImage.layer.masksToBounds = true
+            noteImage.layer.cornerRadius = noteImage.frame.width / 2
+        }
     }
 
 }

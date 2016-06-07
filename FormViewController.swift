@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol NoteAdded{
     func appendNote(note: Note)
@@ -20,12 +21,19 @@ class FormViewController: UIViewController, UITableViewDelegate, UITableViewData
     var notePriorityType: priorityType!
     var noteImage: UIImage!
     
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var error: UILabel!
     var delegate: NoteAdded!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        error.hidden = true
+        error.text = ""
+        topConstraint.constant = 0
+        bottomConstraint.constant = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,7 +74,11 @@ class FormViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
+        return 0.1
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
     }
     
     //MARK: - NoteWrited
@@ -99,26 +111,58 @@ class FormViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: - Buttons
     
     @IBAction func saveNote(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true) {
-            
-            if let priorityR = self.notePriority{
-                if priorityR > 0.5{
+        
+        
+        self.noteTitle = self.noteTitle ?? ""
+        self.noteBody = self.noteBody ?? ""
+        self.noteImage = self.noteImage ?? UIImage(named: "thumbnail")
+        self.notePriority = self.notePriority ?? 0.5
+        
+        self.noteTitle = self.noteTitle.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        self.noteBody = self.noteBody.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
+        if !self.noteTitle.isEmpty && !self.noteBody.isEmpty{
+            self.dismissViewControllerAnimated(true) {
+                var urgentNote = false
+                if self.notePriority > 0.5{
                     self.notePriorityType = .urgent
+                    urgentNote = true
                 }else{
+                    urgentNote = false
                     self.notePriorityType = .normal
                 }
-            }else{
-                self.notePriority = 0.5
-                self.notePriorityType = .normal
+                
+                let context = DataManager.managedObjectContext
+                
+                let newNote = NSEntityDescription.insertNewObjectForEntityForName(Note.ClassName, inManagedObjectContext: context) as! Note
+                
+                newNote.title = self.noteTitle
+                newNote.body = self.noteBody
+                newNote.date = NSDate()
+                newNote.priorityRange = NSNumber(float: self.notePriority)
+                newNote.priority = NSNumber(bool: urgentNote)
+                newNote.image = UIImageJPEGRepresentation(self.noteImage, 1.0)
+                newNote.save()
             }
+        }else{
+            topConstraint.constant = 16
+            bottomConstraint.constant = 13
+            error.hidden = false
+            error.text = "Fill require fields"
+            let userLabelX = error.center.x
+            error.center.x = error.center.x + 10
             
-            self.noteTitle = self.noteTitle ?? ""
-            self.noteBody = self.noteBody ?? ""
-            self.noteImage = self.noteImage ?? UIImage(named: "thumbnail")
+            UIView.animateWithDuration(2.0, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 100, options: .CurveEaseOut, animations: {
+                
+
+                
+                self.error.center.x = userLabelX
+                
+                
+                }, completion: { (complete:Bool) in
+                    
+            })
             
-            let note = Note(title: self.noteTitle, body: self.noteBody, priority: self.notePriorityType, priorityRange: self.notePriority)
-            note.image = self.noteImage
-            self.delegate.appendNote(note)
         }
     }
     

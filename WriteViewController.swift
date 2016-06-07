@@ -58,10 +58,10 @@ class WriteViewController: UIViewController{
                     self.noteMode = priorityType.normal
                 }
             
-                let note: Note = Note(title: self.noteTitle, body: self.noteBody,
-                                      priority: self.noteMode, priorityRange: self.priorityValue)
+                //let note: Note = Note(title: self.noteTitle, body: self.noteBody,
+                                      //priority: self.noteMode, priorityRange: self.priorityValue)
                 
-                self.writeNoteDelegate.noteWrited(note)
+                //self.writeNoteDelegate.noteWrited(note)
             
                 
             }

@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate{
+class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,ActivityEnded{
 
+    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var notesTable: UITableView!
-    var arrayNotes: [Note]!
+    var arrayNotes = [Note]()
     var searchedNotes:[Note] = []
     var selectedNote: Note!
     var isSearching = false{
@@ -20,10 +21,19 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
     }
     
+    var editingTable = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let query = Query(className: Note.ClassName)
+        query.descending("date")
+        query.equalTo("finished", value: NSNumber(bool: false))
+        if let results = query.find() as? [Note]{
+            arrayNotes = results
+            notesTable.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +57,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if segue.identifier == "view"{
             if let vc = segue.destinationViewController as? AddNoteViewController{
                 vc.note = selectedNote
+                vc.delegate = self
             }
         }
     }
@@ -85,48 +96,96 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         //self.performSegueWithIdentifier("view", sender: self)
     }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete{
+            let context = DataManager.managedObjectContext
+            context.deleteObject(arrayNotes[indexPath.row])
+            do{
+               try context.save()
+               arrayNotes.removeAtIndex(indexPath.row)
+                notesTable.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            }catch{
+                
+            }
+        }
+    }
+    
     //MARK: - UISearchBarDelegate
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        searchedNotes = []
-        isSearching = true
+        //searchedNotes = []
+        //isSearching = true
         
-        var searchText = searchBar.text ?? ""
-        if searchText.isEmpty == false{
-            isSearching = true
-            
-            searchedNotes = []
-            
-            for note in arrayNotes{
-                let noteTitle = note.title.lowercaseString
+        if !editingTable{
+            var searchText = searchBar.text ?? ""
+            if searchText.isEmpty == false{
+                isSearching = true
+                
+                searchedNotes = []
+                /*
+                for note in arrayNotes{
+                    let noteTitle = note.title!.lowercaseString
+                    searchText = searchText.lowercaseString
+                    if noteTitle.containsString(searchText){
+                        searchedNotes.append(note)
+                    }
+                }*/
+                
+                
+                
+                
                 searchText = searchText.lowercaseString
-                if noteTitle.containsString(searchText){
-                    searchedNotes.append(note)
+                let query = Query(className: Note.ClassName)
+                query.descending("date")
+                query.equalTo("finished", value: NSNumber(bool: false))
+                query.contains("title", substring: searchText)
+                
+                if let results = query.find() as? [Note]{
+                    searchedNotes = results
                 }
+                
+                notesTable.reloadData()
+                
             }
-            notesTable.reloadData()
-            
         }
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        var searchText = searchBar.text ?? ""
-        if searchText.isEmpty == false{
-            isSearching = true
-            
-            searchedNotes = []
-            
-            for note in arrayNotes{
-                let noteTitle = note.title.lowercaseString
-                searchText = searchText.lowercaseString
-                if noteTitle.containsString(searchText){
-                    searchedNotes.append(note)
+        if !editingTable{
+            var searchText = searchBar.text ?? ""
+            if searchText.isEmpty == false{
+                isSearching = true
+                
+                searchedNotes = []
+                /*
+                for note in arrayNotes{
+                    let noteTitle = note.title!.lowercaseString
+                    searchText = searchText.lowercaseString
+                    if noteTitle.containsString(searchText){
+                        searchedNotes.append(note)
+                    }
                 }
+                */
+                
+                
+                
+                searchText = searchText.lowercaseString
+                let query = Query(className: Note.ClassName)
+                query.descending("date")
+                query.equalTo("finished", value: NSNumber(bool: false))
+                query.contains("title", substring: searchText)
+                
+                if let results = query.find() as? [Note]{
+                    searchedNotes = results
+                }
+                
+                notesTable.reloadData()
+                
             }
-            notesTable.reloadData()
-            
-        }/*else{
-            isSearching = false
-        }*/
+        }
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
@@ -138,5 +197,25 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
+    
+    //MARK: - ActivityEnded
+    func activityEnded() {
+        let query = Query(className: Note.ClassName)
+        query.descending("date")
+        query.equalTo("finished", value: NSNumber(bool: false))
+        if let results = query.find() as? [Note]{
+            arrayNotes = results
+            notesTable.reloadData()
+        }
+    }
+    
+    //MARK: - Actions
 
+    @IBAction func editTableAction(sender: AnyObject) {
+        if !isSearching{
+            notesTable.editing = !notesTable.editing
+            editingTable = notesTable.editing
+            editButton.title = editingTable ? "Done" : "Edit"
+        }
+    }
 }
