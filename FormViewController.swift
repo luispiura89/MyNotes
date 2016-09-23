@@ -148,7 +148,7 @@ class FormViewController: UIViewController, UITableViewDelegate, UITableViewData
             topConstraint.constant = 16
             bottomConstraint.constant = 13
             error.hidden = false
-            error.text = "Fill require fields"
+            error.text = "Fill required fields"
             let userLabelX = error.center.x
             error.center.x = error.center.x + 10
             

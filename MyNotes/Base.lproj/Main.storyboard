@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -323,15 +323,12 @@
                                 <action selector="back:" destination="121-y9-9Rm" id="krZ-BA-JRN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" style="done" id="GV2-k7-yR5">
-                            <connections>
-                                <action selector="editTableAction:" destination="121-y9-9Rm" id="9Oc-Rx-wjx"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" style="done" id="GV2-k7-yR5"/>
                     </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="GV2-k7-yR5" id="Fow-ck-S52"/>
                         <outlet property="notesTable" destination="KMH-df-nG0" id="Mhf-ZK-F58"/>
+                        <outlet property="searchBar" destination="QVT-Rt-lgp" id="Hd8-EG-U4e"/>
                         <segue destination="tj4-2t-Z3z" kind="modal" identifier="view" id="ld2-j8-kZ7"/>
                     </connections>
                 </viewController>
